@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: app-pod
+  labels:
+    app: myapp-pod
+    type: frontend
+spec:
+  containers:
+    - name: app-pod
+      image: tejasreeqb/nodejs-new

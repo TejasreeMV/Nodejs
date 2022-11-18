@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: app-deployment
+  labels:
+    app: myapp-deployment
+    type: frontend
+spec:
+  template:
+    metadata: 
+      name: app-pod
+      labels:
+        app: myapp-pod
+        type: frontend
+    spec:
+      containers:
+        - name: app-pod
+          image: tejasreeqb/nodejs-new
+      imagePullSecrets:
+        - name: testsecret
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp-pod
+      type: frontend
+      
+    

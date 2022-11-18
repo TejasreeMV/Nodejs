@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: app-replicaset
+  labels:
+    app: myapp-replicaset
+    type: frontend
+spec:
+  template:
+    metadata: 
+      name: app-pod
+      labels:
+        app: myapp-pod
+        type: frontend
+    spec:
+      containers:
+        - name: app-pod
+          image: tejasreeqb/nodejs-new
+      
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp-pod
+      type: frontend
+      
+    
